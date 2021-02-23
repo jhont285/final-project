@@ -1,0 +1,32 @@
+import * as AWS from 'aws-sdk';
+import {getLogger} from "@libs/logger";
+
+const log = getLogger();
+
+export interface ImagesBucket {
+  getUploadUrl(todoId: string): string;
+}
+
+class ImagesBucketImp implements ImagesBucket {
+  constructor(
+    private readonly s3Client: AWS.S3 = new AWS.S3({signatureVersion: 'v4'}),
+    private readonly bucketName: string = process.env.IMAGES_S3_BUCKET,
+    private readonly urlExpiration: number = Number(process.env.SIGNED_URL_EXPIRATION)) {
+  }
+
+  private readonly _operation: string = 'putObject';
+
+  getUploadUrl(marketId: string): string {
+    log.info(`getUploadUrl: ${JSON.stringify({todoId: marketId}, null, 4)}`);
+    return this.s3Client.getSignedUrl(this._operation, {
+      Bucket: this.bucketName,
+      Key: marketId,
+      Expires: this.urlExpiration,
+    });
+  }
+
+}
+
+const imagesBucketImp: ImagesBucket = new ImagesBucketImp();
+export default imagesBucketImp;
+

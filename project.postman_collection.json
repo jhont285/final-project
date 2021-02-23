@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "4f7beb48-10a0-48be-885f-7f2f6ed470fd",
+		"name": "project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Markets",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/markets",
+					"protocol": "https",
+					"host": [
+						"{{apiId}}",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"markets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Market",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{authToken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/markets/003d9756-04e8-41f5-a501-8fc26117a6c5",
+					"protocol": "https",
+					"host": [
+						"{{apiId}}",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"markets",
+						"003d9756-04e8-41f5-a501-8fc26117a6c5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Market",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{authToken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nameMarket\": \"WallMart\",\n    \"budget\": 3000,\n    \"currency\": \"USD\",\n    \"products\": [\n        {\n            \"name\": \"Avocato\",\n            \"approximatePrice\": 8,\n            \"quantity\": 2\n        },\n        {\n            \"name\": \"Apple\",\n            \"approximatePrice\": 8,\n            \"quantity\": 3\n        }\n    ],\n    \"done\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/markets/bd36e716-298f-421e-980a-393a6f437570",
+					"protocol": "https",
+					"host": [
+						"{{apiId}}",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"markets",
+						"bd36e716-298f-421e-980a-393a6f437570"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Market",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nameMarket\": \"WallMart\",\n    \"budget\": 3000,\n    \"currency\": \"USD\",\n    \"products\": [\n        {\n            \"name\": \"Avocato\",\n            \"approximatePrice\": 8,\n            \"quantity\": 2\n        },\n        {\n            \"name\": \"Apple\",\n            \"approximatePrice\": 8,\n            \"quantity\": 3\n        }\n    ],\n    \"done\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/markets",
+					"protocol": "https",
+					"host": [
+						"{{apiId}}",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"markets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Attachment invoince",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nameMarket\": \"WallMart\",\n    \"budget\": 3000,\n    \"currency\": \"USD\",\n    \"products\": [\n        {\n            \"name\": \"Avocato\",\n            \"approximatePrice\": 8,\n            \"quantity\": 2\n        },\n        {\n            \"name\": \"Apple\",\n            \"approximatePrice\": 8,\n            \"quantity\": 3\n        }\n    ],\n    \"done\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/markets",
+					"protocol": "https",
+					"host": [
+						"{{apiId}}",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"markets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Market",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{authToken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/markets/003d9756-04e8-41f5-a501-8fc26117a6c5",
+					"protocol": "https",
+					"host": [
+						"{{apiId}}",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"markets",
+						"003d9756-04e8-41f5-a501-8fc26117a6c5"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apiId",
+			"value": "vfd47x26hj"
+		},
+		{
+			"key": "authToken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2Rldi00a2FzY3BhOC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTU2NDU5OTE5MjEyODA4MDg3MzQiLCJhdWQiOiJOTVkxSDlsN1lIeVFrTThrdHVad1F2NEc5VUpVc3dabiIsImlhdCI6MTYxNDA4NDA3NywiZXhwIjoxNjE0MTIwMDc3LCJhdF9oYXNoIjoiY2NreWllYl9CZF8xaksyeUZmV2xMdyIsIm5vbmNlIjoiRWRFeklLUmFHdFBuZGpoRlF1ZXRzczRuNW1UVW9DNWUifQ.AqGdVCv1iT0k3kooQaMcQx77rdn0Kog-dTemcfL-ykM"
+		}
+	]
+}
