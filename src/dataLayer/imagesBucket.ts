@@ -16,11 +16,11 @@ class ImagesBucketImp implements ImagesBucket {
 
   private readonly _operation: string = 'putObject';
 
-  getUploadUrl(todoId: string): string {
-    log.info(`getUploadUrl: ${JSON.stringify({todoId}, null, 4)}`);
+  getUploadUrl(marketId: string): string {
+    log.info(`getUploadUrl: ${JSON.stringify({todoId: marketId}, null, 4)}`);
     return this.s3Client.getSignedUrl(this._operation, {
       Bucket: this.bucketName,
-      Key: todoId,
+      Key: marketId,
       Expires: this.urlExpiration,
     });
   }

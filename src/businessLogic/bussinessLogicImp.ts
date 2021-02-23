@@ -20,7 +20,7 @@ class BusinessLogicImp implements BusinessLogic {
     this.log.info(`BusinessLogicImp: creating new logic ${JSON.stringify({market, userId}, null, 4)}`);
     const timestamp = new Date().toISOString();
 
-    return this.dataLayer.create({
+    return this.dataLayer.createOrUpdate({
       id: uuidv4(),
       userId,
       createdAt: timestamp,
@@ -40,7 +40,7 @@ class BusinessLogicImp implements BusinessLogic {
     const marketItem = await this.validate(userId, marketId);
     marketItem.updatedAt = new Date().toISOString();
 
-    return this.dataLayer.create({
+    return this.dataLayer.createOrUpdate({
       ...marketItem,
       ...market,
     });
@@ -63,8 +63,8 @@ class BusinessLogicImp implements BusinessLogic {
 
   async updateImage(userId: string, marketId: string): Promise<UploadURL> {
     const marketItem = await this.validate(userId, marketId);
-    const result = await this.imagesLogic.uploadUrl(marketId);
-    marketItem.invoice = `https://${this.bucketName}.s3.amazonaws.com/${marketItem}`;
+    const result = this.imagesLogic.uploadUrl(marketId);
+    marketItem.invoice = `https://${this.bucketName}.s3.amazonaws.com/${marketId}`;
     await this.update(marketItem, userId, marketId);
     return result;
   }

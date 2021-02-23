@@ -20,7 +20,7 @@ export default {
       Effect: 'Allow',
       Action: [
         'dynamodb:GetItem',
-        'dynamodb:UpdateItem'
+        'dynamodb:PutItem',
       ],
       Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.MARKET_TABLE}',
     },

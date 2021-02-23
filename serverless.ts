@@ -3,7 +3,7 @@ import type {AWS} from '@serverless/typescript';
 import Auth from './src/functions/auth/aut0Authorizer';
 import CreateMarket from './src/functions/createMarket';
 import DeleteMarket from './src/functions/deleteMarket';
-// import GenerateUploadUrl from './src/functions/generateUploadUrl';
+import GenerateUploadUrl from './src/functions/generateUploadUrl';
 import GetMarket from './src/functions/getMarket';
 import GetMarkets from './src/functions/getMarkets';
 import UpdateMarket from './src/functions/updateMarket';
@@ -45,6 +45,7 @@ const serverlessConfiguration: AWS = {
       IMAGES_S3_BUCKET: 'jhon-final-project-images-${self:provider.stage}',
       AUTH_0_SECRET_ID: 'Auth0Secret-${self:provider.stage}',
       AUTH_0_SECRET_FIELD: 'auth0Secret',
+      SIGNED_URL_EXPIRATION: '900',
     },
     tracing: {
       lambda: true,
@@ -181,10 +182,10 @@ const serverlessConfiguration: AWS = {
     Auth,
     CreateMarket,
     DeleteMarket,
+    GenerateUploadUrl,
     GetMarket,
     GetMarkets,
     UpdateMarket,
-    // GenerateUploadUrl,
   }
 }
 

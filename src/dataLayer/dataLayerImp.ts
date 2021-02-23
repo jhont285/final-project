@@ -26,7 +26,7 @@ class DataLayerImp implements DataLayer {
     return result.Items as Market[];
   }
 
-  async create(market: Market): Promise<Market> {
+  async createOrUpdate(market: Market): Promise<Market> {
     this.log.info('creating a new movie' + market.id);
     await this.docClient.put({
       TableName: this.marketTable,

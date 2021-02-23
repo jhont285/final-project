@@ -11,10 +11,10 @@ export interface ImagesLogic {
 class ImagesLogicImp implements ImagesLogic {
   constructor(private readonly imageBucket: ImagesBucket = imagesBucketImp) {}
 
-  uploadUrl(todoId: string): UploadURL {
-    log.info(`uploadUrl with input todoId: ${todoId}`);
+  uploadUrl(marketId: string): UploadURL {
+    log.info(`uploadUrl with input todoId: ${marketId}`);
     return {
-      uploadUrl: this.imageBucket.getUploadUrl(todoId),
+      uploadUrl: this.imageBucket.getUploadUrl(marketId),
     }
   }
 }
